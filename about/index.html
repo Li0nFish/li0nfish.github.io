@@ -21,7 +21,7 @@ function updatePageConfig() {
   }
 }
 document.addEventListener('pjax:complete', function() { updatePageConfig(); });
-updatePageConfig();</script><link type="text/css" rel="stylesheet" href="/lib/encrypt/hbe.style.css"><script src="//unpkg.com/mermaid@10.5.0/dist/mermaid.min.js"></script><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lightgallery.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-zoom.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-thumbnail.css"><link type="text/css" rel="stylesheet" href="/lib/fontawesome/css/all.min.css"><script>if (window.localStorage.getItem('theme-mode') === 'light')
+updatePageConfig();</script><link rel="stylesheet" href="//unpkg.com/@waline/client@v2/dist/waline.css"><link type="text/css" rel="stylesheet" href="/lib/encrypt/hbe.style.css"><script src="//unpkg.com/mermaid@10.5.0/dist/mermaid.min.js"></script><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lightgallery.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-zoom.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-thumbnail.css"><link type="text/css" rel="stylesheet" href="/lib/fontawesome/css/all.min.css"><script>if (window.localStorage.getItem('theme-mode') === 'light')
  document.documentElement.setAttribute('theme-mode', 'light')
 if (window.localStorage.getItem('theme-mode') === 'dark')
  document.documentElement.setAttribute('theme-mode', 'dark')</script><style>@font-face {
@@ -35,17 +35,18 @@ if (window.localStorage.getItem('theme-mode') === 'dark')
  --dark-background: url('https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg');
  --light-background: url('/img/bk.jpg');
  --theme-encrypt-confirm: 'confirm'
-}</style><script defer src="/js/arknights.js"></script><script defer src="/js/search.js"></script><script defer src="https://vercount.one/js"></script><script async src="//unpkg.com/valine/dist/Valine.min.js"></script><script defer type="module">import mermaid from '//unpkg.com/mermaid@10.5.0/dist/mermaid.esm.mjs';
+}</style><script defer src="/js/arknights.js"></script><script defer src="/js/search.js"></script><script defer src="https://vercount.one/js"></script><script defer type="module">import mermaid from '//unpkg.com/mermaid@10.5.0/dist/mermaid.esm.mjs';
 window.mermaid = mermaid;
 code.paintMermaid();
-</script><script async src="//unpkg.com/lightgallery@2.7.1/lightgallery.min.js"></script><script async src="//unpkg.com/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script><script async src="//unpkg.com/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script><script async src="/lib/encrypt/hbe.js"></script><script async src="/js/pjax.js"></script><script class="pjax-js">reset= () => {new Valine({
- el: '#valine'
- , appId: 'zWk5FbXqUDkTAz0EComW3yco-gzGzoHsz'
- , appKey: 'OYrwlMuffBzsRCCTNxYR7EXb' , placeholder: 'This comment is sent by Penguin Logistics.'
- , path: window.location.pathname
- , avatar: 'retro'
- , avatar_cdn: 'https://dn-qiniu-avatar.qbox.me/avatar/'
-});document.querySelector('.lg-container')?.remove()
+</script><script async type="module">import { init } from '//unpkg.com/@waline/client@v2/dist/waline.mjs';
+window.waline = init;
+</script><script async src="//unpkg.com/lightgallery@2.7.1/lightgallery.min.js"></script><script async src="//unpkg.com/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script><script async src="//unpkg.com/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script><script async src="/lib/encrypt/hbe.js"></script><script async src="/js/pjax.js"></script><script class="pjax-js">reset= () => {if (document.querySelector('#waline'))
+ waline({
+   el: '#waline',
+   dark: ':root[theme-mode="dark"]',
+   serverURL: 'https://comment.li0nfish.com/',
+   path: window.location.pathname,
+ });document.querySelector('.lg-container')?.remove()
 lightGallery(document.getElementById('post-bg'), {
   plugins: [lgZoom,lgThumbnail],
   selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
@@ -65,14 +66,13 @@ document.addEventListener("pjax:complete", reset);document.addEventListener('pja
  const script = document.createElement('script');
  script.src = 'https://vercount.one/js';
  document.head.appendChild(script);
-});reset()})</script><script class="pjax-js">reset= () => {new Valine({
- el: '#valine'
- , appId: 'zWk5FbXqUDkTAz0EComW3yco-gzGzoHsz'
- , appKey: 'OYrwlMuffBzsRCCTNxYR7EXb' , placeholder: 'This comment is sent by Penguin Logistics.'
- , path: window.location.pathname
- , avatar: 'retro'
- , avatar_cdn: 'https://dn-qiniu-avatar.qbox.me/avatar/'
-});document.querySelector('.lg-container')?.remove()
+});reset()})</script><script class="pjax-js">reset= () => {if (document.querySelector('#waline'))
+ waline({
+   el: '#waline',
+   dark: ':root[theme-mode="dark"]',
+   serverURL: 'https://comment.li0nfish.com/',
+   path: window.location.pathname,
+ });document.querySelector('.lg-container')?.remove()
 const postBg = document.querySelector('#post-bg');
 if (postBg) lightGallery(postBg, {
   plugins: [lgZoom,lgThumbnail],
@@ -93,7 +93,7 @@ document.addEventListener("pjax:complete", reset);document.addEventListener('pja
  const script = document.createElement('script');
  script.src = 'https://vercount.one/js';
  document.head.appendChild(script);
-});reset()})</script><meta name="generator" content="Hexo 8.0.0"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><nav><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Search" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup" tabindex="0"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li><li class="navItem"><a class="navBlock" href="/about/"><span class="navItemTitle">About</span></a></li></ol></nav></header><article><div id="post-bg"><div id="post-title"><h1>About ME</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2025-10-19T13:14:15.000Z" id="date"> 2025-10-19</time></div></span><br><span>Last Update: <div class="control"><time datetime="2025-10-19T15:45:44.455Z" id="updated"> 2025-10-19</time></div></span><br><span id="vercount_container_page_pv">Page View: <span class="control" id="vercount_value_page_pv">loading...</span></span></div></div><hr><div id="post-content"><h1 id="基本信息-Basic-Information"><a href="#基本信息-Basic-Information" class="headerlink" title="基本信息 Basic Information"></a>基本信息 Basic Information</h1><p>来自<strong>广东广州</strong>，大一新生一名。</p>
+});reset()})</script><meta name="generator" content="Hexo 8.0.0"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><nav><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Search" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup" tabindex="0"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li><li class="navItem"><a class="navBlock" href="/about/"><span class="navItemTitle">About</span></a></li></ol></nav></header><article><div id="post-bg"><div id="post-title"><h1>About ME</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2025-10-19T13:14:15.000Z" id="date"> 2025-10-19</time></div></span><br><span>Last Update: <div class="control"><time datetime="2025-10-20T02:25:54.144Z" id="updated"> 2025-10-20</time></div></span><br><span id="vercount_container_page_pv">Page View: <span class="control" id="vercount_value_page_pv">loading...</span></span></div></div><hr><div id="post-content"><h1 id="基本信息-Basic-Information"><a href="#基本信息-Basic-Information" class="headerlink" title="基本信息 Basic Information"></a>基本信息 Basic Information</h1><p>来自<strong>广东广州</strong>，大一新生一名。</p>
 <p>就读于广州大学<strong>数据科学与大数据技术</strong>专业。</p>
 <p>目前正在学习<strong>C</strong>与<strong>Python</strong>。</p>
 <p>From <strong>Guangzhou, Guangdong</strong>, a first-year freshman.  </p>
@@ -106,10 +106,12 @@ document.addEventListener("pjax:complete", reset);document.addEventListener('pja
 <p>爱玩<strong>瓦罗兰特、三角洲行动</strong>。</p>
 <p>喜欢听<strong>R&amp;B</strong>与<strong>民谣</strong>。</p>
 <p>经常会听<strong>陶喆、方大同、陈绮贞和卢广仲</strong>。</p>
+<p>爱<strong>唱歌</strong>与<strong>弹吉他</strong>。目前正在学习<strong>指弹</strong>…</p>
 <p>I usually love to study various <strong>technologies</strong>.</p>
 <p><strong>Including but not limited to</strong> microcontrollers, website penetration testing, UI design, making music…</p>
 <p>I tend to have a broad range of interests but only a <strong>surface-level understanding</strong>.</p>
 <p>Will go play <strong>badminton</strong> when free. </p>
 <p>Loves playing <strong>Valorant, Delta Force</strong>.</p>
 <p>I enjoy listening to <strong>R&amp;B</strong> and <strong>folk music</strong>.I often listen to <strong>David Tao, Khalil Fong, Cheer Chen, and Crowd Lu</strong>.</p>
-<div id="paginator"></div></div><div id="post-footer"></div><div id="comments"><div id="valine"></div></div></div><div class="bottom-btn"><div><a class="i-top" id="to-top" onClick="scrolls.scrolltop();" title="To Top" style="opacity: 0; display: none;">∧ </a><a class="i-index" id="to-index" href="#toc-div" title="To Catalog">≡</a><a class="i-color" id="color-mode" onClick="colorMode.change()" title="Change Theme"></a></div></div></article><aside><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo" style="margin:0;border-radius:0;"></a><h1 id="Dr"><a href="/">Li0nFish</a></h1><div id="description"><p>Dive Into The Code Sea ...</p></div></div><div id="aside-block"><div id="toc-div"><h1>Catalog</h1><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF-Basic-Information"><span class="toc-number">1.</span> <span class="toc-text">基本信息 Basic Information</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%88%B1%E5%A5%BD%E4%B8%8E%E7%89%B9%E9%95%BF-Hobbies-Special-Skills"><span class="toc-number">2.</span> <span class="toc-text">爱好与特长 Hobbies &amp; Special Skills</span></a></li></ol></div></div><footer><nobr><span class="icp-title">ICP</span><a class="icp-content" target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">粤ICP备2025440975号</a></nobr><br><nobr>Published with <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> Theme <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknights</a></nobr><wbr><nobr> by <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas></body></html>
+<p>Loves <strong>singing</strong> and <strong>playing the guitar</strong>. Currently learning <strong>fingerstyle</strong>…</p>
+<div id="paginator"></div></div><div id="post-footer"></div><div id="comments"><div id="waline"></div></div></div><div class="bottom-btn"><div><a class="i-top" id="to-top" onClick="scrolls.scrolltop();" title="To Top" style="opacity: 0; display: none;">∧ </a><a class="i-index" id="to-index" href="#toc-div" title="To Catalog">≡</a><a class="i-color" id="color-mode" onClick="colorMode.change()" title="Change Theme"></a></div></div></article><aside><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo" style="margin:0;border-radius:0;"></a><h1 id="Dr"><a href="/">Li0nFish</a></h1><div id="description"><p>Dive Into The Code Sea ...</p></div></div><div id="aside-block"><div id="toc-div"><h1>Catalog</h1><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF-Basic-Information"><span class="toc-number">1.</span> <span class="toc-text">基本信息 Basic Information</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%88%B1%E5%A5%BD%E4%B8%8E%E7%89%B9%E9%95%BF-Hobbies-Special-Skills"><span class="toc-number">2.</span> <span class="toc-text">爱好与特长 Hobbies &amp; Special Skills</span></a></li></ol></div></div><footer><nobr><span class="icp-title">ICP</span><a class="icp-content" target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">粤ICP备2025440975号</a></nobr><br><nobr>Published with <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> Theme <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknights</a></nobr><wbr><nobr> by <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas></body></html>
